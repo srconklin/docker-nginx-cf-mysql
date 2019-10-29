@@ -1,0 +1,13 @@
+{
+	"adminPassword": "Pri234Sc",
+	"datasources": {
+		"dsmysql": {
+			"host": "mysql",
+			"dbdriver": "mysql",
+			"password": "Pri234Sc",
+			"database": "test_db",
+			"port": "3306",
+			"username": "root"
+		}
+	}
+}
