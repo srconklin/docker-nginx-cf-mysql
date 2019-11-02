@@ -45,14 +45,6 @@
 sudo docker run -it --rm \
 -v /docker-volumes/etc/letsencrypt:/etc/letsencrypt \
 -v /docker-volumes/var/lib/letsencrypt:/var/lib/letsencrypt \
--v /docker-nginx-cf-mysql/build/ssl/www:/data/letsencrypt \
+-v /usr/share/nginx/html:/data/letsencrypt \
 -v "/docker-volumes/var/log/letsencrypt:/var/log/letsencrypt" \
-certbot/certbot \
-certonly \
---webroot \
---register-unsafely-without-email 
---agree-tos \
---webroot-path=/data/letsencrypt \
---staging \
---renew-by-default \
--d drierite-sandbox.cf -d www.drierite-sandbox.cf 
+certbot/certbot certonly --webroot --register-unsafely-without-email --agree-tos --webroot-path=/data/letsencrypt --staging -d drierite-sandbox.cf -d www.drierite-sandbox.cf 
