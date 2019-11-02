@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  # NGINX bootstrap to allow cerbot to confirm domain and issue ssl
+  nginx-certbot:
+    # build: .
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    # Mount our shared webroot volume
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./www:/usr/share/nginx/html

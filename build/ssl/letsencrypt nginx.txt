@@ -1,0 +1,41 @@
+source :  https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx
+
+
+Steps to setup SSL using Lets Encrypt, Docker and Nginx
+
+1) create a Nginx container that runs over http. 
+Thsi will be used by Cerbot to peformn the challenge request to 
+isse the certificate. This basic instance of Nginx will only ever be run for the first time that you request a
+certificate from Let's Encrypt.
+
+2) create a cerbot container to run the cerbot command to issue the certificate
+
+Certbot will perform an ACME challenge request to validate that you are in control of your domain.
+This happens on the temporary Nginx server we create in step 1
+
+This certificate consists of a private key and a public key and both these keys are saved in a Let's Encrypt folder on your server
+
+
+3) The certifcate will be saved on a volume on the Ubuntu server (droplet)
+and the cerbot container will be shutdown
+
+4) containerize an Nginx server that will load the certs and serve the content over ssl
+
+This prodcution version of the Nginx server configuration file needs to reference both keys in order to configure your site to use HTTPS.
+
+---
+
+using docker allows us to stay current on udpates to certbot.
+2 steps for use/reuse
+a) get a  new ssl cert (runs on basic nginx setup in step 1)
+b) cron job to run a periodic script to renew (runs on production version setup in in step 4)
+
+
+-----------
+STEP 1 
+-----------
+
+
+
+
+
