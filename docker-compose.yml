@@ -5,16 +5,10 @@ services:
   nginx:
     #build: ./build/nginx
     image: srconklin/mynginx
-    ports:
-      - "80:80"
-      - "443:443"
     # Mount our shared webroot volume
     volumes:
       - ./www:/opt/sites/default
       - ./build/nginx/config:/etc/nginx
-      - ./build/nginx/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
-      - /docker-volumes/etc/letsencrypt/live/drierite-sandbox.cf/fullchain.pem:/etc/letsencrypt/live/drierite-sandbox.cf/fullchain.pem
-      - /docker-volumes/etc/letsencrypt/live/drierite-sandbox.cf/privkey.pem:/etc/letsencrypt/live/drierite-sandbox.cf/privkey.pem
 
   # CFML Engine
   cfml:

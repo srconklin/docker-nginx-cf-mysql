@@ -7,7 +7,7 @@
 	<title>ACF</title>
 </head>
 <body>
-User Dump<p> 
+User Dump it now<p> 
 	
 <cfquery name="theQuery" datasource="dsmysql">
 	select * from testtable
