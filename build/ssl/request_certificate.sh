@@ -48,3 +48,19 @@ sudo docker run -it --rm \
 -v /docker-nginx-cf-mysql/build/ssl/www:/data/letsencrypt \
 -v "/docker-volumes/var/log/letsencrypt:/var/log/letsencrypt" \
 certbot/certbot certonly --webroot --register-unsafely-without-email --agree-tos --webroot-path=/data/letsencrypt --staging -d drierite-sandbox.cf -d www.drierite-sandbox.cf 
+
+
+## production
+sudo docker run -it --rm \
+-v /docker-volumes/etc/letsencrypt:/etc/letsencrypt \
+-v /docker-volumes/var/lib/letsencrypt:/var/lib/letsencrypt \
+-v /docker-nginx-cf-mysql/build/ssl/www:/data/letsencrypt \
+-v "/docker-volumes/var/log/letsencrypt:/var/log/letsencrypt" \
+certbot/certbot certonly --webroot --email sconklin@dynaprice.com --agree-tos --no-eff-email --webroot-path=/data/letsencrypt -d drierite-sandbox.cf -d www.drierite-sandbox.cf
+
+# list certificates 
+sudo docker run --rm -it --name certbot \
+-v /docker-volumes/etc/letsencrypt:/etc/letsencrypt \
+-v /docker-volumes/var/lib/letsencrypt:/var/lib/letsencrypt \
+-v //docker-nginx-cf-mysql/build/ssl/www:/data/letsencrypt \
+certbot/certbot --staging certificates

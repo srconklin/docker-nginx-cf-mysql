@@ -1,7 +1,8 @@
 server {
        ################### SERVER NAME AND PORT #####################
-        server_name www.drierite-sandbox.cf drierite-sandbox.cf;
-        listen 80;
+        server_name drierite-sandbox.cf  www.drierite-sandbox.cf;
+        listen      80;
+        listen [::]:80;
         listen 443 ssl http2;    
         listen [::]:443 ssl http2;
         index index.cfm index.htm;
@@ -11,10 +12,10 @@ server {
 
         ssl on;
 
+       #for certbot challenges (renewal process)
         location ~ /.well-known/acme-challenge {
-                allow all;
-                # root /var/www/html;
-                root /tmp/letsencrypt/www;
+            allow all;
+            root /data/letsencrypt;
         }
 
         
@@ -26,9 +27,11 @@ server {
         # placed on the HOST machine. We can then pull them in through the host
         # volume mounting.
         #
+
         ssl_certificate /etc/letsencrypt/live/drierite-sandbox.cf/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/drierite-sandbox.cf/privkey.pem;
- 
+
+        ssl_dhparam /etc/ssl/certs/dhparam-2048.pem;
            
 
         ################### SECURITY BLOCKING #####################
@@ -50,7 +53,8 @@ server {
     ################### SERVER NAME AND PORT #####################
     server_name localhost;
     # server_name _;
-    listen 80;
+    listen  80;
+    listen [::]:80;
 	listen 443 ssl http2;        
     index index.cfm index.htm;
     root "/opt/sites/default";
