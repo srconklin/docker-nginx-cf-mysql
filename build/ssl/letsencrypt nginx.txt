@@ -31,10 +31,6 @@ a) get a  new ssl cert (runs on basic nginx setup in step 1)
 b) cron job to run a periodic script to renew (runs on production version setup in in step 4)
 
 
------------
-STEP 1 
------------
-
 
 
 
