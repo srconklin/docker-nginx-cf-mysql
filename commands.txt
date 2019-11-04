@@ -1,0 +1,8 @@
+#dev
+docker-compose up -d
+
+#prod
+docker-nginx-cf-mysql# docker-compose -f docker-compose.yml -f docker-compose.prod.yml  up -d
+
+# Generate a 2048 bit DH Param file
+sudo openssl dhparam -out dhparam-2048.pem 2048

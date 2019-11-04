@@ -9,6 +9,6 @@ services:
     # Mount our shared webroot volume
     volumes:
       - ./build/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./docker-volumes/etc/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /docker-volumes/etc/dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
       - /docker-volumes/etc/letsencrypt/live/drierite-sandbox.cf/fullchain.pem:/etc/letsencrypt/live/drierite-sandbox.cf/fullchain.pem
       - /docker-volumes/etc/letsencrypt/live/drierite-sandbox.cf/privkey.pem:/etc/letsencrypt/live/drierite-sandbox.cf/privkey.pem
