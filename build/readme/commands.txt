@@ -12,15 +12,11 @@ docker run
 # list containers
 docker ps -a
 
+#kill containers
 docker kill 
 
+#remove containers
 docker rm - f
 
-docker build dockerfile
-
-docker image 
-
-----
-
-how to make lean containter
-progressive builds
+#shell into commandbox container
+docker exec -it tmp_cfml_1 bash
