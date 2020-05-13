@@ -3,8 +3,8 @@ version: "3"
 services:
   # NGINX Container
   nginx:
-    #build: ./build/nginx
-    image: srconklin/mynginx
+    build: ./build/nginx
+    # image: srconklin/mynginx
     # Mount our shared webroot volume
     volumes:
       - ./www:/opt/sites/default
@@ -12,7 +12,8 @@ services:
 
   # CFML Engine
   cfml:
-    image: ortussolutions/commandbox
+    # image: ortussolutions/commandbox
+    build: ./build/lucee
     # bind public port to 8080
     ports:
       - "8080:8080"
@@ -23,7 +24,7 @@ services:
       SSL_PORT: 8443
       # CFCONFIG: /app/myConfig.json
       cfconfigfile: /app/myConfig.json
-      CFENGINE: adobe@11
+      # CFENGINE: adobe@11
       # HEADLESS: FALSE
       #cfconfig_adminPassword: admin123
 
