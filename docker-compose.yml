@@ -12,7 +12,7 @@ services:
 
   # CFML Engine
   cfml:
-    # image: ortussolutions/commandbox
+    #image: ortussolutions/commandbox
     build: ./build/lucee
     # bind public port to 8080
     ports:
@@ -22,11 +22,13 @@ services:
     environment:
       PORT: 8080
       SSL_PORT: 8443
-      # CFCONFIG: /app/myConfig.json
       cfconfigfile: /app/.cfconfig.json
-      # CFENGINE: adobe@11
+      # CFCONFIG: /app/myConfig.json
+      # BOX_INSTALL: "true"
+      # FINALIZE_STARTUP: "false"
+      # CFENGINE: lucee5
       # HEADLESS: FALSE
-      #cfconfig_adminPassword: admin123
+      # cfconfig_adminPassword: admin123
 
   # MySQL Server
   mysql:
@@ -38,4 +40,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./build/mysql/initdb:/docker-entrypoint-initdb.d
+      - my-datavolume:/var/lib/mysql
+      #  - ./build/mysql/initdb:/docker-entrypoint-initdb.d
+volumes:
+  my-datavolume:
