@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  # MySQL Server
+  mysql:
+    # container_name: mysql
+    image: my_mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "Pri234Sc"
+      MYSQL_DATABASE: "test_db"
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqlvolume:/var/lib/mysql
+      - ./build/mysql/initdb:/docker-entrypoint-initdb.d
+volumes:
+  mysqlvolume:

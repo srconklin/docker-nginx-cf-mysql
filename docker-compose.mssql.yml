@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  mssql:
+    # container_name: mssql
+    # image: mcr.microsoft.com/mssql/server:2019-latest
+    build: ./build/mssql
+    image: my_mssql:latest
+    environment:
+      - SA_PASSWORD=Pri234Sc!
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+    volumes:
+      - mssqlvolume:/var/opt/mssql
+
+volumes:
+  mssqlvolume:

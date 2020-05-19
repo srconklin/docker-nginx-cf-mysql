@@ -1,0 +1,101 @@
+
+--------------------
+docker compose
+-------------------
+
+#dev
+# deamon
+docker-compose up -d 
+
+# using a flavor of sql engine
+#mssql
+docker-compose -f docker-compose.yml -f docker-compose.mssql.yml up 
+
+#mysql
+docker-compose -f docker-compose.yml -f docker-compose.mysql.yml up 
+
+#prod
+ docker-compose -f docker-compose.yml -f docker-compose.prod.yml  up -d
+
+# Generate a 2048 bit DH Param file
+sudo openssl dhparam -out dhparam-2048.pem 2048
+
+# list containers
+docker ps -a
+docker container ls -a
+
+#kill containers
+docker kill 
+
+--------------------
+Unused objects
+--------------------
+
+
+# Removing All Unused Objects
+# #he docker system prune command will remove all stopped containers, all dangling images, and all unused networks:
+# -f force
+docker system prune -f
+
+#remove all unused volumes
+docker system prune --volumes
+
+--------------------
+containers
+--------------------
+
+#remove containers
+docker container rm cc3f2ff51cab cd20b396a061
+
+#To remove all stopped containers use the docker container prune command:
+docker container prune -f
+# filter
+For example, to remove all images that are created more than 12 hours ago, run:
+
+docker container prune --filter "until=12h"
+
+--------------------
+images
+--------------------
+
+#images
+docker image ls
+
+#remove
+docker image rm 75835a67d134 2a4cca5ac898
+
+# remove dangling images type:
+docker image prune -f
+
+#Remove all unused images
+#To remove all images which are not referenced by any existing container, not just the dangling ones, use the prune command with the -a flag:
+docker image prune -a -f
+
+--------------------
+volumes
+--------------------
+# volumes
+docker volume ls
+
+#Remove docker volumes
+ docker volume prune -f 
+
+# Removing Docker Networks
+#Remove one or more networks
+#T#o remove one or more Docker networks use the docker network ls command to find the ID of the networks you want to remove.
+
+docker network ls
+
+--------------------
+network
+--------------------
+#remove
+docker network rm c520032c3d31
+
+Remove all unused network
+Use the docker network prune command to remove all unused networks.
+
+docker network prune -f
+
+#shell into commandbox container
+docker exec -it docker-nginx-cf-commandbox-mysql_cfml_1 bash

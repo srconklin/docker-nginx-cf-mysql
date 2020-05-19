@@ -1,19 +1,27 @@
 version: "3"
 
 services:
-  # NGINX Container
+  # web enngine
   nginx:
+    # container_name: nginx
     build: ./build/nginx
-    # image: srconklin/mynginx
+    image: my_nginx:latest
+    # bind public port to 8080
+    ports:
+      - "80:80"
+      - "443:443"
     # Mount our shared webroot volume
     volumes:
       - ./www:/opt/sites/default
       - ./build/nginx/config:/etc/nginx
+      - ./build/nginx/nginx-local.conf:/etc/nginx/conf.d/default.conf
 
   # CFML Engine
   cfml:
-    #image: ortussolutions/commandbox
-    build: ./build/lucee
+    # container_name: cfml
+    image: ortussolutions/commandbox:lucee5
+    # build: ./build/ortussolutions
+    # image: my_cfml:latest
     # bind public port to 8080
     ports:
       - "8080:8080"
@@ -26,21 +34,9 @@ services:
       # CFCONFIG: /app/myConfig.json
       # BOX_INSTALL: "true"
       # FINALIZE_STARTUP: "false"
-      # CFENGINE: lucee5
+      # CFENGINE: adobe11
       # HEADLESS: FALSE
       # cfconfig_adminPassword: admin123
-
-  # MySQL Server
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: "Pri234Sc"
-      MYSQL_DATABASE: "test_db"
-    restart: always
-    ports:
-      - "3306:3306"
-    volumes:
-      - my-datavolume:/var/lib/mysql
-      #  - ./build/mysql/initdb:/docker-entrypoint-initdb.d
-volumes:
-  my-datavolume:
+# volumes:
+#   mssqlvolume:
+#   mysqlvolume:
