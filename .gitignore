@@ -2,3 +2,4 @@ node_modules
 WEB-INF
 .vscode
 .crossdomain.xml
+.env

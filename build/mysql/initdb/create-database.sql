@@ -11,9 +11,9 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table test_db.testtable
+-- Dumping structure for table project_db.users
 CREATE TABLE
-IF NOT EXISTS `testtable`
+IF NOT EXISTS `users`
 (
   `id` int
 (11) NOT NULL AUTO_INCREMENT,
@@ -25,15 +25,15 @@ IF NOT EXISTS `testtable`
 (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table test_db.testtable: ~0 rows (approximately)
-/*!40000 ALTER TABLE `testtable` DISABLE KEYS */;
-INSERT INTO `testtable` (`
+-- Dumping data for table project_db.users: ~0 rows (approximately)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`
 id`,
 `name
 `, `email`) VALUES
 (1, 'Gavin', 'gavin@ortussolutions.com'),
 (2, 'Luis', 'lmajano@ortussolutions.com');
-/*!40000 ALTER TABLE `testtable` ENABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

@@ -1,0 +1,21 @@
+1) clone this into new project folder
+
+2) remove git folder to remove source control
+
+3) search and replace glboally all instances of project_db with name of project datasource
+
+4) set www/.env variables for CF settings:
+
+	a)  choose a database dialect
+	b)  set logins and passwords
+
+5)  set root .env variables for docker-compose/files secrets **
+
+
+
+
+**  WARNING
+env vars are not particularly secure either. 
+They are visible via docker inspect, and hence they are available to any user that can run docker commands.
+https://stackoverflow.com/questions/22651647/docker-and-securing-passwords
+

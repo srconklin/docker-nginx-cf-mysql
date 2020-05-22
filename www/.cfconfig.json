@@ -1,5 +1,5 @@
 {
-	"adminPassword": "Pri234Sc",
+	"adminPassword": "${CFADMIN_PASSWORD}",
 	"requestTimeoutEnabled": true,
 	"whitespaceManagement": "white-space-pref",
 	"requestTimeout": "0,0,5,0",

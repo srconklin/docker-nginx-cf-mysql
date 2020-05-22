@@ -10,7 +10,7 @@ ENVIRONMENT=development
 # DB_PORT=3306
 # DB_DATABASE=project_db
 # DB_USER=root
-# DB_PASSWORD=Pri234Sc
+# DB_PASSWORD=thepassword
 
 # Database Information
 DB_CONNECTIONSTRING=jdbc:mssql://127.0.0.1:1433/project_db?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useLegacyDatetimeCode=true
@@ -20,7 +20,7 @@ DB_HOST=mssql
 DB_PORT=1433
 DB_DATABASE=project_db
 DB_USER=sa
-DB_PASSWORD=Pri234Sc!
+DB_PASSWORD=thepassword
 
 # JWT Information
 JWT_SECRET=
@@ -32,4 +32,4 @@ S3_REGION=us-east-1
 S3_DOMAIN=amazonaws.com
 
 #CF admin password
-CFADMIN_PASSWORD=Pri234Sc
+CFADMIN_PASSWORD=thepassword

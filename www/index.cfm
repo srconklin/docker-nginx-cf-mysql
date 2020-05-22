@@ -9,8 +9,8 @@
 <body>
 User Dump it now<p> 
 	
-<cfquery name="theQuery" datasource="dsmysql">
-	select * from testtable
+<cfquery name="theQuery" datasource="project_db">
+	select * from users
 </cfquery>
 
 <cfdump var="#theQuery#">

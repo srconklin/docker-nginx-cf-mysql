@@ -1,0 +1,29 @@
+# search and replace glboally all instances of www.myhost.com with name of registered domain
+
+---------------------------------
+register a domain at frenom.org
+--------------------------------
+
+Add nameservers:
+
+1) pick domain 
+2) point domain servers to digital ocean
+
+ns1.digitalocean.com
+ns2.digitalocean.com
+
+3)  set IP address from droplet to ip field
+
+4) Now check if they are propagating by using whatsmydns.net (Enter your IP and change click on A and select NS and click Search)
+
+Once they are propagating, add the domain to your DigitalOcean account.
+
+5) Go to your DigitalOcean Dashboard and click on Networking.
+
+6) Add a domain and click Save.
+
+7) Then Edit the domain and add the Droplet to the Domain and save.
+
+8) Now click on the domain name and an A record which points to your droplet.
+
+

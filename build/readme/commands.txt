@@ -99,3 +99,13 @@ docker network prune -f
 
 #shell into commandbox container
 docker exec -it docker-nginx-cf-commandbox-mysql_cfml_1 bash
+
+
+----------------------------
+Troubleshoot
+-------------------------------
+ISSUE:
+Docker: $'\r': command not found on Windows
+
+RESOLVE:
+in the Visual Studio Code you can change the type of the line separator symbol from CRLF to LF. Press F1 and input "Change End of Line Sequence"
