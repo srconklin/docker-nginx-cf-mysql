@@ -3,17 +3,19 @@ FROM mcr.microsoft.com/mssql/server:2019-latest
 # Copy initialization scripts
 COPY . .
 
+ARG SA_PASSWORD
+
 USER root
 
 # Grant permissions for the run-initialization script to be executable
 RUN chmod +x run-initialization.sh
+# RUN ["chmod", "+x", "run-initialization.sh"]
+# RUN ["chmod", "+x", "entrypoint.
 
-ENV ACCEPT_EULA=Y
-ENV sa_password=Pri234Sc!
+
+# ENV SA_PASSWORD CorrectHorseBatteryStapleFor$
+# ENV ACCEPT_EULA Y
 
 # Run Microsoft SQl Server and initialization script (at the same time)
 # Note: If you want to start MsSQL only (without initialization script) you can comment bellow line out, CMD entry from base image will be taken
-# CMD /bin/bash ./entrypoint.sh $sa_password
-# ENTRYPOINT ["/entrypoint.sh"]
-CMD ["sh", "-c", "./entrypoint.sh  ${sa_password}"]
-#CMD ["echo", "${sa_password}"]
+CMD /bin/bash ./entrypoint.sh

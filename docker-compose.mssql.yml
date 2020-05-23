@@ -7,7 +7,7 @@ services:
     build: ./build/mssql
     image: my_mssql:latest
     environment:
-      - SA_PASSWORD=${DB_PASSWORD}
+      - SA_PASSWORD=${SA_PASSWORD}
       - ACCEPT_EULA=Y
     ports:
       - "5434:1433"
